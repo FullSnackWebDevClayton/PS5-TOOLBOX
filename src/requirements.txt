@@ -1,0 +1,12 @@
+certifi==2024.2.2
+charset-normalizer==3.3.2
+cx_Freeze==7.0.0
+idna==3.7
+pillow==10.3.0
+pyserial==3.5
+requests==2.31.0
+setuptools==69.5.1
+six==1.16.0
+urllib3==2.2.1
+wheel==0.43.0
+wxPython==4.2.1
