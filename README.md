@@ -1,3 +1,5 @@
+[![Beta](https://img.shields.io/badge/Status-Beta-yellow)](https://github.com/FullSnackWebDevClayton/PS5-UART-TOOL)
+
 # PS5 UART Tool
 
 This repository contains the PS5 UART Tool, a utility developed by Tech Centre UK for interacting with PS5 UART connections.
