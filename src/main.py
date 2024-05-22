@@ -11,8 +11,9 @@ import webbrowser
 current_date_time = datetime.datetime.now()
 formatted_date_time = current_date_time.strftime("%d-%m-%Y %H:%M:%S")
 url = "http://198.244.234.174:8001/generate-xml"
-tcuk_url = "https://techcentreuk.co.uk/ps5-uart/"
+tcuk_url = "http://www.consolerepair.wiki/en/submit-uart-code"
 donate_url = "https://buymeacoffee.com/techcentreuk"
+console_repair_wiki_url = "http://www.consolerepair.wiki"
 filename = "error_codes.xml"
 
 def appsupportdir():
@@ -70,7 +71,7 @@ class UARTToolFrame(wx.Frame):
         self.refresh_button.Bind(wx.EVT_BUTTON, self.on_refresh_button_click)
         
         self.action_label = wx.StaticText(self.panel, label="Select Action:")
-        self.action_dropdown = wx.ComboBox(self.panel, choices=["Read Error Codes", "Clear Error Codes", "Submit Error Codes to Tech Centre UK", "Custom Command", "Exit"], style=wx.CB_READONLY)
+        self.action_dropdown = wx.ComboBox(self.panel, choices=["Read Error Codes", "Clear Error Codes", "Submit Error Codes", "Custom Command", "Console Repair Wiki", "Exit"], style=wx.CB_READONLY)
         
         self.connect_button = wx.Button(self.panel, label="Start")
         self.connect_button.Bind(wx.EVT_BUTTON, self.on_connect_button_click)
@@ -134,21 +135,23 @@ class UARTToolFrame(wx.Frame):
         self.port_dropdown.AppendItems(self.get_available_ports())
     
     def on_connect_button_click(self, event):
-        selected_port = self.port_dropdown.GetValue()
+        selected_port_desc = self.port_dropdown.GetValue()
+        selected_port = selected_port_desc.split(" - ")[0] if selected_port_desc else ""
         selected_action = self.action_dropdown.GetValue()
         if selected_port:
-            port_name = selected_port.split(' - ')[0]  # Extract the actual port name
-            self.text_ctrl.AppendText(f"Connecting to port: {port_name} \n \n")
+            self.text_ctrl.AppendText(f"Connecting to port: {selected_port} \n \n")
             if selected_action:
                 self.text_ctrl.AppendText(f"Selected action: {selected_action} \n\n")
                 if selected_action == "Read Error Codes":
-                    self.read_error_codes(port_name)
+                    self.read_error_codes(selected_port)
                 elif selected_action == "Clear Error Codes":
-                    self.clear_error_codes(port_name)
-                elif selected_action == "Submit Error Codes to Tech Centre UK":
-                    self.submit_error_codes(port_name)
+                    self.clear_error_codes(selected_port)
+                elif selected_action == "Submit Error Codes":
+                    self.submit_error_codes(selected_port)
                 elif selected_action == "Custom Command":
-                    self.custom_command(port_name)
+                    self.custom_command(selected_port)
+                elif selected_action == "Console Repair Wiki":
+                    self.open_console_repair_wiki()
                 elif selected_action == "Exit":
                     self.Close()
             else:
@@ -156,18 +159,18 @@ class UARTToolFrame(wx.Frame):
         else:
             self.text_ctrl.AppendText("Please select a port first. \n")
     
-    def read_error_codes(self, port_name):
+    def read_error_codes(self, selected_port):
         try:
             info_dialog = wx.MessageDialog(None, "Reading error codes may take a moment. Please wait... \n", "Reading Error Codes", wx.OK | wx.ICON_INFORMATION)
             if info_dialog.ShowModal() == wx.ID_OK:
                 info_dialog.Destroy()
-                with serial.Serial(port_name) as ser:
+                with serial.Serial(selected_port) as ser:
                     ser.baudrate = 115200
                     ser.rts = True
                     ser.timeout = 5.0
                     errors = False
                     no_error = False
-                    self.text_ctrl.AppendText(f"Selected port: {port_name}\n \nGetting error logs...\n \n")
+                    self.text_ctrl.AppendText(f"Selected port: {selected_port}\n \nGetting error logs...\n \n")
                     
                     error_codes = self.parse_error_codes(os.path.join(pathinappsupportdir("PS5_UART_Tool"), filename))
                     UARTLines = []
@@ -220,14 +223,14 @@ class UARTToolFrame(wx.Frame):
         except Exception as ex:
             wx.MessageBox(f"An error occurred while connecting to the selected device.\nError details:\n{ex}", "Error", wx.OK | wx.ICON_ERROR)
 
-    def clear_error_codes(self, port_name):
+    def clear_error_codes(self, selected_port):
         try:
-            with serial.Serial(port_name) as ser:
+            with serial.Serial(selected_port) as ser:
                 self.text_ctrl.Clear()
                 ser.baudrate = 115200
                 ser.rts = True
                 ser.timeout = 5.0
-                self.text_ctrl.AppendText(f"Selected port: {port_name}\n\nClearing error logs...\n")
+                self.text_ctrl.AppendText(f"Selected port: {selected_port}\n\nClearing error logs...\n")
                 command = f"errlog clear"
                 checksum = self.calculate_checksum(command)
                 ser.write((checksum + "\n").encode())
@@ -240,8 +243,11 @@ class UARTToolFrame(wx.Frame):
         except Exception as ex:
             wx.MessageBox(f"An error occurred while connecting to the selected device.\nError details:\n{ex}", "Error", wx.OK | wx.ICON_ERROR)
 
-    def submit_error_codes(self, port_name):
+    def submit_error_codes(self, selected_port):
         webbrowser.open(tcuk_url)
+
+    def open_console_repair_wiki(self):
+        webbrowser.open(console_repair_wiki_url)
 
     def calculate_checksum(self, input_str):
         checksum = sum(ord(char) for char in input_str)
@@ -288,7 +294,6 @@ class UARTToolFrame(wx.Frame):
                 self.text_ctrl.AppendText("No command entered.\n")
         else:
             dialog.Destroy()
-
 
 if __name__ == "__main__":
     download_error_codes_xml(url, filename)
