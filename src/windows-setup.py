@@ -17,11 +17,11 @@ build_exe_options = {
 
 # Call setup function
 setup(
-    name="PS5 UART Tool",
-    version="0.1",
-    description="PS5 UART Tool by Tech Centre UK",
+    name="PS5-TOOLBOX",
+    version="0.2beta",
+    description="PS5 TOOLBOX by Tech Centre UK",
     options={"build_exe": build_exe_options},
-    executables=[Executable("main.py", base="gui", icon="windows.ico", target_name="PS5 UART Tool")]
+    executables=[Executable("main.py", base="gui", icon="windows.ico", target_name="PS5-TOOLBOX")]
 )
 
 
