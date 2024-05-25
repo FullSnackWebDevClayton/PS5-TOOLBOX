@@ -1,8 +1,8 @@
 [![Beta](https://img.shields.io/badge/Status-Beta-yellow)](https://github.com/FullSnackWebDevClayton/PS5-UART-TOOL)
 
-# PS5 UART Tool
+# PS5 Toolbox
 
-This repository contains the PS5 UART Tool, a utility developed by Tech Centre UK for interacting with PS5 UART connections.
+This repository contains the PS5 Toolbox, a utility developed by Tech Centre UK for interacting with PS5 UART connections AND Bios/NOR Modifier.
 
 ## Contents
 
@@ -15,10 +15,10 @@ This repository contains the PS5 UART Tool, a utility developed by Tech Centre U
 
 ## Source Files
 
-The `src` directory holds all the source files necessary for building and running the PS5 UART Tool. It includes the following files:
+The `src` directory holds all the source files necessary for building and running the PS5 Toolbox. It includes the following files:
 
-- `build.bat`: Batch script for building the Windows executable and installer.
-- `build.sh`: Shell script for building the macOS executable and installer.
+- `build-windows.bat`: Batch script for building the Windows executable and installer.
+- `build-mac.sh`: Shell script for building the macOS executable and installer.
 - `requirements.txt`: List of Python dependencies required by the tool.
 - `mac-setup.py`: Script for creating the macOS installer.
 - `windows-setup.py`: Script for creating the Windows installer.
@@ -30,17 +30,17 @@ The `MacOSX_ARM64` directory contains an example build of the PS5 UART Tool for 
 
 ## Pre-built Windows x64
 
-The `Windows_amd64` directory contains pre-built versions of the PS5 UART Tool for Windows x64 architecture. It includes both a portable version and an installer version (`Win-Installer v0.0.1`, `Win-Portable v0.0.1`), allowing users to choose the installation method that suits their needs.
+The `Windows_amd64` directory contains pre-built versions of the PS5 Toolbox for Windows x64 architecture. It includes both a portable version and an installer version (`Win-Installer v0.2`, `Win-Portable v0.2`), allowing users to choose the installation method that suits their needs.
 
 ## Usage
 
 To use the PS5 UART Tool:
 
-1. **Windows**: Navigate to the `Windows_amd64` directory and choose between the installer version (`Win-Installer v0.0.1`) or the portable version (`Win-Portable v0.0.1`). Run the appropriate executable file to install or run the tool.
+1. **Windows**: Navigate to the `Windows_amd64` directory and choose between the installer version (`Win-Installer v0.0.1`) or the portable version (`Win-Portable v0.2`). Run the appropriate executable file to install or run the tool.
 
 2. **macOS**: Navigate to the `MacOSX_ARM64` directory and run the app OR executable file in (`exe.macosx-14.0-arm64-3.12`) to use the PS5 UART Tool on macOS ARM64 systems. Please note this is only for a specific version of macOS (check step 3 if this does not work for you).
 
-3. **Building from Source**: If you want to build the tool from source, navigate to the `src` directory and run the appropriate build script (`build.bat` for Windows, `build.sh` for macOS). The scripts will install everything needed including dependencies.
+3. **Building from Source**: If you want to build the tool from source, navigate to the `src` directory and run the appropriate build script (`build-windows.bat` for Windows, `build-mac.sh` for macOS). The scripts will install everything needed including dependencies.
 
 
 ## Console Repair Wiki
