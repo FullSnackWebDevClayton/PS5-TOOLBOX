@@ -16,7 +16,6 @@ tcuk_url = "http://www.consolerepair.wiki/en/submit-uart-code"
 donate_url = "https://buymeacoffee.com/techcentreuk"
 console_repair_wiki_url = "http://www.consolerepair.wiki"
 filename = "error_codes.xml"
-download = "http://www.consolerepair.wiki/freshbios.bin"
 
 # Helper functions
 def appsupportdir():
@@ -419,9 +418,6 @@ class BIOSModifierPanel(wx.Panel):
         vbox.Add(hbox13, flag=wx.EXPAND | wx.LEFT | wx.RIGHT | wx.TOP, border=10)
 
         hbox14 = wx.BoxSizer(wx.HORIZONTAL)
-        download_button = wx.Button(self, label="Download Fresh BIOS")
-        download_button.Bind(wx.EVT_BUTTON, self.download_bios)
-        hbox14.Add(download_button, flag=wx.ALL | wx.CENTER, border=10)
         btn1 = wx.Button(self, label='Save New Bios')
         btn1.Bind(wx.EVT_BUTTON, self.OnSave)
         hbox14.Add(btn1, flag=wx.ALL | wx.CENTER, border=10)
@@ -566,9 +562,6 @@ class BIOSModifierPanel(wx.Panel):
             return data[offset:offset + length].decode("utf-8")
         except UnicodeDecodeError:
             return binascii.hexlify(data[offset:offset + length]).decode("utf-8")
-
-    def download_bios(self, event):
-        webbrowser.open(download)
 
 
 
