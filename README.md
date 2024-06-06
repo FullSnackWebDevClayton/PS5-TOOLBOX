@@ -7,15 +7,13 @@ This repository contains the PS5 Toolbox, a utility developed by Tech Centre UK 
 ## Contents
 
 1. [Source Files (src)](#source-files)
-2. [Pre-built macOS ARM64 Example](#pre-built-macos-arm64-example)
-3. [Pre-built Windows x64](#pre-built-windows-x64)
-4. [Usage](#usage)
+2. [Usage](#usage)
 
 ---
 
 ## Source Files
 
-The `src` directory holds all the source files necessary for building and running the PS5 Toolbox. It includes the following files:
+The directory holds all the source files necessary for building and running the PS5 Toolbox. It includes the following files:
 
 - `build-windows.bat`: Batch script for building the Windows executable and installer.
 - `build-mac.sh`: Shell script for building the macOS executable and installer.
@@ -24,23 +22,11 @@ The `src` directory holds all the source files necessary for building and runnin
 - `windows-setup.py`: Script for creating the Windows installer.
 - Other source files and scripts necessary for the functionality of the tool.
 
-## Pre-built macOS ARM64 Example
-
-The `MacOSX_ARM64` directory contains an example build of the PS5 UART Tool for macOS ARM64 architecture. It includes the executable file (`exe.macosx-14.0-arm64-3.12`) and any additional resources required for running the tool on macOS ARM64 systems.
-
-## Pre-built Windows x64
-
-The `Windows_amd64` directory contains pre-built versions of the PS5 Toolbox for Windows x64 architecture. It includes both a portable version and an installer version (`Win-Installer v0.2`, `Win-Portable v0.2`), allowing users to choose the installation method that suits their needs.
-
 ## Usage
 
 To use the PS5 UART Tool:
 
-1. **Windows**: Navigate to the `Windows_amd64` directory and choose between the installer version (`Win-Installer v0.0.1`) or the portable version (`Win-Portable v0.2`). Run the appropriate executable file to install or run the tool.
-
-2. **macOS**: Navigate to the `MacOSX_ARM64` directory and run the app OR executable file in (`exe.macosx-14.0-arm64-3.12`) to use the PS5 UART Tool on macOS ARM64 systems. Please note this is only for a specific version of macOS (check step 3 if this does not work for you).
-
-3. **Building from Source**: If you want to build the tool from source, navigate to the `src` directory and run the appropriate build script (`build-windows.bat` for Windows, `build-mac.sh` for macOS). The scripts will install everything needed including dependencies.
+1. **Building from Source**: If you want to build the tool from source, navigate to the `src` directory and run the appropriate build script (`build-windows.bat` for Windows, `build-mac.sh` for macOS). The scripts will install everything needed including dependencies.
 
 
 ## Console Repair Wiki
