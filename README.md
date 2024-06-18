@@ -48,7 +48,7 @@ To build the PS5 Toolbox:
 > pip install nuitka
 
 6. Build App with Nuitka:
-> python -m nuitka --standalone --macos-create-app-bundle --macos-app-icon=mac.icns main.py
+> python -m nuitka --standalone --macos-create-app-bundle --macos-app-icon=mac.icns PS5-Toolbox.py
 
 7. Say yes too all prompts to download.
 
