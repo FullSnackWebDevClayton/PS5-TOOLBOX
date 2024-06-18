@@ -13,20 +13,66 @@ This repository contains the PS5 Toolbox, a utility developed by Tech Centre UK 
 
 ## Source Files
 
-The directory holds all the source files necessary for building and running the PS5 Toolbox. It includes the following files:
-
-- `build-windows.bat`: Batch script for building the Windows executable and installer.
-- `build-mac.sh`: Shell script for building the macOS executable and installer.
-- `requirements.txt`: List of Python dependencies required by the tool.
-- `mac-setup.py`: Script for creating the macOS installer.
-- `windows-setup.py`: Script for creating the Windows installer.
-- Other source files and scripts necessary for the functionality of the tool.
+The directory holds all the source files necessary for building and running the PS5 Toolbox.
 
 ## Usage
 
-To use the PS5 UART Tool:
+1. Download pre built packages.
+2. Use the build scripts included in source.
+3. Build the app manually from src.
 
-1. **Building from Source**: If you want to build the tool from source, navigate to the `src` directory and run the appropriate build script (`build-windows.bat` for Windows, `build-mac.sh` for macOS). The scripts will install everything needed including dependencies.
+To build the PS5 Toolbox:
+
+**Building from Source**: If you want to build the tool from source, navigate to the `src` directory and run the appropriate commands.
+
+### MAC
+
+1. Install Homebrew (if not already installed):
+> /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+2. Install Python 3 using Homebrew:
+> brew install python@3.12
+
+3. Create a virtual environment (optional but recommended):
+> python3 -m venv myenv
+> source myenv/bin/activate
+
+4. Install requirements:
+> pip -r install requirements.txt
+
+5. Install Nuitka using pip:
+> pip install nuitka
+
+6. Build App with Nuitka:
+> python -m nuitka --standalone --macos-create-app-bundle --macos-app-icon=mac.icns main.py
+
+7. Say yes too all prompts to download.
+
+8. You will find the app in the workign directory when complete.
+
+### Windows
+
+1. Check if python is installed:
+> python3 --version
+
+if Python not installed download from https://www.python.org/downloads/
+
+2. Optional: Set Up a Virtual Environment (Recommended):
+> python -m venv myenv
+> myenv\Scripts\activate
+
+3. Install requirements:
+> pip -r install requirements.txt
+
+4. Install Nuitka:
+> pip install nuitka
+
+5. Build exe:
+> python -m nuitka --windows-disable-console --standalone --windows-icon-from-ico=windows.ico PS5-Toolbox.py
+
+6. Say yes to all prompts to download.
+
+7. you will find a folder called PS5-Toolbox.dist, this is all the files needed to run the exe file in the same folder.
 
 
 ## Console Repair Wiki
