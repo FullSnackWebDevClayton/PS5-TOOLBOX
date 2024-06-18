@@ -42,7 +42,7 @@ To build the PS5 Toolbox:
 > source myenv/bin/activate
 
 5. Install requirements:
-> pip -r install requirements.txt
+> pip install -r requirements.txt
 
 5. Install Nuitka using pip:
 > pip install nuitka
@@ -70,7 +70,7 @@ if Python not installed download from https://www.python.org/downloads/
 > myenv\Scripts\activate
 
 4. Install requirements:
-> pip -r install requirements.txt
+> pip install -r requirements.txt
 
 4. Install Nuitka:
 > pip install nuitka
