@@ -34,10 +34,12 @@ To build the PS5 Toolbox:
 > brew install python@3.12
 
 3. Create a virtual environment (optional but recommended):
+   
 3a. > python3 -m venv myenv
+
 3b. > source myenv/bin/activate
 
-4. Install requirements:
+5. Install requirements:
 > pip -r install requirements.txt
 
 5. Install Nuitka using pip:
@@ -58,10 +60,12 @@ To build the PS5 Toolbox:
 if Python not installed download from https://www.python.org/downloads/
 
 2. Optional: Set Up a Virtual Environment (Recommended):
+
 2a. > python -m venv myenv
+
 2b. > myenv\Scripts\activate
 
-3. Install requirements:
+4. Install requirements:
 > pip -r install requirements.txt
 
 4. Install Nuitka:
