@@ -34,8 +34,8 @@ To build the PS5 Toolbox:
 > brew install python@3.12
 
 3. Create a virtual environment (optional but recommended):
-> python3 -m venv myenv
-> source myenv/bin/activate
+3a. > python3 -m venv myenv
+3b. > source myenv/bin/activate
 
 4. Install requirements:
 > pip -r install requirements.txt
@@ -58,8 +58,8 @@ To build the PS5 Toolbox:
 if Python not installed download from https://www.python.org/downloads/
 
 2. Optional: Set Up a Virtual Environment (Recommended):
-> python -m venv myenv
-> myenv\Scripts\activate
+2a. > python -m venv myenv
+2b. > myenv\Scripts\activate
 
 3. Install requirements:
 > pip -r install requirements.txt
