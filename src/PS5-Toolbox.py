@@ -413,7 +413,7 @@ class BIOSModifierPanel(wx.Panel):
             "CFI-1014A", "CFI-1015A", "CFI-1015B", "CFI-1016A", "CFI-1018A",
             "CFI-1102A", "CFI-1108A", "CFI-1109A", "CFI-1114A",
             "CFI-1115A", "CFI-1116A", "CFI-1118A", "CFI-1208A", "CFI-1215A",
-            "CFI-1216A",
+            "CFI-1215B","CFI-1216A",
         ])
         hbox13.Add(self.newBoardVariantChoice, proportion=1, flag=wx.EXPAND)
         vbox.Add(hbox13, flag=wx.EXPAND | wx.LEFT | wx.RIGHT | wx.TOP, border=10)
