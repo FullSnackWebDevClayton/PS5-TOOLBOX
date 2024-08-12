@@ -32,18 +32,6 @@ REM Install dependencies from requirements.txt
 echo Installing dependencies...
 pip install -r requirements.txt
 
-REM Install Nuitka
-echo Installing Nuitka...
-pip install nuitka
-
-REM Build the Python application using Nuitka
-echo Building application with Nuitka...
-python -m nuitka ^
-    --windows-console-mode=disable ^
-    --standalone ^
-    --windows-icon-from-ico=windows.ico ^
-    PS5-Toolbox.py
-
 REM Deactivate virtual environment
 echo Build completed.
 deactivate

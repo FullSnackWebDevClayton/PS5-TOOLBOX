@@ -444,8 +444,8 @@ class BIOSModifierPanel(wx.Panel):
     def OnSave(self, event):
         new_board_serial = self.newBoardSerialText.GetValue().encode('utf-8')
 
-        if len(new_board_serial) > 10:
-            wx.MessageBox("New board serial must be 10 bytes or less.", "Error", wx.ICON_ERROR)
+        if len(new_board_serial) > 17:
+            wx.MessageBox("New board serial must be 17 bytes.", "Error", wx.ICON_ERROR)
             return
 
         edition_choice = self.ps5EditionChoice.GetStringSelection()
@@ -509,7 +509,7 @@ class BIOSModifierPanel(wx.Panel):
         return self.decode_bytes(data, 0x1C7200, 16)
 
     def extract_board_serial(self, data):
-        return self.decode_bytes(data, 0x1C7210, 10)
+        return self.decode_bytes(data, 0x1C7210, 17)
 
     def extract_wifi_mac(self, data):
         return ':'.join(f'{b:02X}' for b in data[0x1C73C0:0x1C73C0 + 6])
@@ -592,6 +592,6 @@ class MainFrame(wx.Frame):
 if __name__ == '__main__':
     download_error_codes_xml(url, filename)
     app = wx.App()
-    MainFrame(None, title='PS5 Toolbox v0.2')
+    MainFrame(None, title='PS5 Toolbox v0.3')
     app.MainLoop()
     wx.Exit()

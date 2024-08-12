@@ -29,18 +29,6 @@ source myenv/bin/activate
 echo "Installing dependencies..."
 pip install -r requirements.txt
 
-# Install Nuitka
-echo "Installing Nuitka..."
-pip install nuitka
-
-# Build the Python application using Nuitka
-echo "Building application with Nuitka..."
-python -m nuitka \
-    --standalone \
-    --macos-create-app-bundle \
-    --macos-app-icon=mac.icns \
-    main.py
-
 # Clean up
 deactivate
 echo "Build completed."
