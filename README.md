@@ -38,6 +38,10 @@ The directory holds all the source files necessary for building and running the 
 #### Windows
 3. pyinstaller for windows: pyinstaller --onefile --windowed --icon=windows.ico PS5-Toolbox.py
 
+## Micro Soldering Academy
+
+Feel free to join our discord server where we teach, learn, create guides and add resources. https://discord.gg/K6ytUCnZXw
+
 ## Console Repair Wiki
 
 We also maintain a [Console Repair Wiki](http://www.consolerepair.wiki/) where users can submit codes, updates to code descriptions, create guides, and tutorials to help others in the community. It's a collaborative platform aimed at creating a network of information to assist console repair enthusiasts. If you can contribute, Please do!
